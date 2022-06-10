@@ -23,11 +23,9 @@ exports.register = (req, res) => {
         email: email, 
         password: hashedPassword
     }
-    console.log(user)
     knex('users')
         .insert(user)
         .then((user) => {
-            console.log(user)
             const token = jwt.sign(
                 { email: email },
                 process.env.JWT_KEY,

@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const registerRoute = require('./routes/registerRoute');
 const currentRoute = require('./routes/currentRoute');
+const loginRoute = require('./routes/loginRoute');
 const port = 8080;
 
 //middleware
@@ -13,6 +14,8 @@ app.use(express.json());
 //Routes
 app.use('/register', registerRoute);
 app.use('/current', currentRoute);
+app.use('/login', loginRoute);
+
 
 //port listener
 app.listen(port, () => {
