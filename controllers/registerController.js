@@ -9,7 +9,7 @@ exports.register = (req, res) => {
     const {userName, email, password, confirmPassword } = req.body;
 
     if (!email || !password || !confirmPassword || !userName) {
-        return res.status(400).send("Please enter the required fields.");
+        return res.status(400).send("All fields are required.");
 
     }
     else if(password !== confirmPassword){

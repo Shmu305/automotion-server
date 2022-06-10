@@ -8,7 +8,7 @@ exports.login = (req, res) => {
     const { email, password } = req.body;
     
     if (!email || !password) {
-        return res.status(400).send("Please enter the required fields.");
+        return res.status(400).send("All fields are required.");
     }
 
     // Find the user
