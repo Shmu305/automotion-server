@@ -1,4 +1,5 @@
 const knex = require('knex')(require('../knexfile'));
+const { decode } = require('jsonwebtoken');
 const jwt = require('jsonwebtoken');
 const authenticate = require('../middleware/authenticate');
 
@@ -18,6 +19,7 @@ exports.current = (authenticate, (req, res) => {
             return res.status(401).send("Invalid auth token");
         }
 
+        console.log(decoded)
         knex('users')
             .where({ email: decoded.email })
             .first()

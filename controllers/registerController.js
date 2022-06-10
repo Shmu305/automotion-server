@@ -27,8 +27,9 @@ exports.register = (req, res) => {
     knex('users')
         .insert(user)
         .then((user) => {
+            console.log(user)
             const token = jwt.sign(
-                { id: user.id, email: user.email },
+                { email: email },
                 process.env.JWT_KEY,
                 { expiresIn: "24h" }
             )
