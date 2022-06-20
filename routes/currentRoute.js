@@ -3,11 +3,11 @@ const currentController = require('../controllers/currentController');
 
 const authenticate = require('../middleware/authenticate');
 
-router.use(authenticate);
+//router.use(authenticate);
 
 router
     .route('/')
-    .get(currentController.current);
+    .get(authenticate, currentController.current);
 
 module.exports = router;
 
