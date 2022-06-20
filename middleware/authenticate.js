@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+
 const authenticate = (req, res, next) => {
     // If there is no auth header provided
     if (!req.headers.authorization) {
@@ -14,7 +15,6 @@ const authenticate = (req, res, next) => {
         if (err) {
             return res.status(401).send("Invalid auth token");
         } 
-        console.log(decoded)
         req.user = decoded;
         next();
     });

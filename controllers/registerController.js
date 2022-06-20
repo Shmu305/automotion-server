@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // [ROUTE] - "/register"
 // [POST] - Creates new user through registration
 exports.register = (req, res) => {
-    console.log(req.body);
+
     const {userName, email, password, confirmPassword } = req.body;
 
     if (!email || !password || !confirmPassword || !userName) {
